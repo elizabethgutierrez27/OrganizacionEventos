@@ -13,25 +13,25 @@ export class ParticipanteService {
   constructor(private http : HttpClient) { }
 
   saveParticipante(participante : Participante) {
-    return this.http.post(`${this.URL}/participante`, participante);
+    return this.http.post(`${this.URL}/participantes`, participante);
   }
 
   getAllParticipantes() : Observable<Participante[]> {
-    return this.http.get<Participante[]>(`${this.URL}/participante`)
+    return this.http.get<Participante[]>(`${this.URL}/participantes`)
   }
 
   getOneParticipante(id : string) : Observable<Participante> {
-    return this.http.get<Participante>(`${this.URL}/participante/${id}`);
+    return this.http.get<Participante>(`${this.URL}/participantes/${id}`);
   }
 
   getUsuario(email : string) : Observable<Participante> {
-    return this.http.get<Participante[]>(`${this.URL}/participante/login/${email}`).pipe(
+    return this.http.get<Participante[]>(`${this.URL}/participantes/login/${email}`).pipe(
       map(participantes => participantes[0])
     );
   }
 
   addEvento(email : string | null, nomEvento : string, area : string) {
-    return this.http.post(`${this.URL}/participante/nvoEvento`, { email, nomEvento, area });
+    return this.http.post(`${this.URL}/participantes/nvoEvento`, { email, nomEvento, area });
   }
 
  

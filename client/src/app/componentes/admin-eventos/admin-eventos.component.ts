@@ -24,9 +24,13 @@ export class AdminEventosComponent implements OnInit {
     FechaInicio: '',
     FechaFinal: '',
     Cupo: 0,
-    Imagen: null,
+    Imagen: '',
     Participantes: 0,
     Asistentes: 0
+  }
+
+  ciudad : Ciudad = {
+    NomCiudad : ''
   }
   
   constructor (
@@ -45,19 +49,17 @@ export class AdminEventosComponent implements OnInit {
     this.as.getAreas().subscribe(areas => {
       this.areas = areas;
       console.log(areas);
-      console.log("ya jala creo")
+      //console.log("ya jala creo")
     })
   }
 
-  getAllCiudades(): void {
+  getAllCiudades():void {
     this.cs.getCiudades().subscribe(ciudad => {
       this.ciudades = ciudad;
       console.log(ciudad);
-      console.log("ya jala creo")
+      //console.log("ya jala creo")
     })
   }
-
-  // admin-eventos.component.ts
 
   saveEvento() {
     // Verificar si el campo NomEvento está vacío o no tiene un valor válido
@@ -83,5 +85,14 @@ export class AdminEventosComponent implements OnInit {
         },
         err => console.log(err)
     )
+}
+
+saveCiudad() {
+  this.cs.saveCiudad(this.ciudad).subscribe(
+    res => {
+      this.router.navigate(['/eventos']);
+    },
+    err => console.error(err)
+  )
 }
 }

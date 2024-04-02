@@ -76,7 +76,7 @@ saveParticipante() {
 
   this.ps.saveParticipante(this.participante).subscribe(
     res => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/registro']);
     },
     err => console.log(err)
   )
@@ -99,23 +99,29 @@ login(correo: string) {
   if (this.vEmail.valid) {
     this.ps.getUsuario(correo).subscribe(
       (resp) => {
-        sessionStorage.setItem('Nombres', resp.Nombres.toString());
-        sessionStorage.setItem('ApePaterno', resp.ApePaterno.toString());
-        sessionStorage.setItem('ApeMaterno', resp.ApeMaterno.toString());
-        sessionStorage.setItem('Edad', resp.Edad.toString());
-        sessionStorage.setItem('Genero', resp.Genero.toString());
-        sessionStorage.setItem('Telefono', resp.Telefono.toString());
-        sessionStorage.setItem('Correo', resp.Correo.toString());
-        sessionStorage.setItem('Ciudad', resp.Ciudad.toString());
-        sessionStorage.setItem('Password', resp.Password.toString());
-        this.router.navigate(['/index']);
+        if (resp) { // Verificar si resp no es null o undefined
+          sessionStorage.setItem('Nombres', resp.Nombres.toString());
+          sessionStorage.setItem('ApePaterno', resp.ApePaterno.toString());
+          sessionStorage.setItem('ApeMaterno', resp.ApeMaterno.toString());
+          sessionStorage.setItem('Edad', resp.Edad.toString());
+          sessionStorage.setItem('Genero', resp.Genero.toString());
+          sessionStorage.setItem('Telefono', resp.Telefono.toString());
+          sessionStorage.setItem('Correo', resp.Correo.toString());
+          sessionStorage.setItem('Ciudad', resp.Ciudad.toString());
+          sessionStorage.setItem('Password', resp.Password.toString());
+          this.router.navigate(['/participante']);
+        } else {
+          console.error('Respuesta no definida:', resp);
+          // Manejar el caso en que resp es null o undefined
+        }
       },
       (error) => {
-        // Manejar el error aquí, por ejemplo, mostrar un mensaje al usuario o redirigir a una página de error
         console.error('Error al obtener usuario:', error);
       }
     );
   }
-
 }
+
+
+
 }

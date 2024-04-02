@@ -14,4 +14,8 @@ export class CiudadService {
   getCiudades() : Observable<Ciudad[]> {
     return this.http.get<Ciudad[]>(`${this.URL}/ciudad`);
   }
+
+  saveCiudad(ciudad : Ciudad) {
+    return this.http.post(`${this.URL}/ciudad`, ciudad);
+  }
 }

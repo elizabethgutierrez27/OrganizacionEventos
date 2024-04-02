@@ -5,6 +5,8 @@ import { EventoService } from '../../services/evento.service';
 import { Router } from '@angular/router';
 import { AreaService } from '../../services/area.service';
 import { Area } from '../../services/area.model';
+import { CiudadService } from '../../services/ciudad.service';
+import { Ciudad } from '../../services/ciudad.model';
 
 @Component({
   selector: 'app-detalle-eventos',
@@ -13,6 +15,7 @@ import { Area } from '../../services/area.model';
 })
 export class DetalleEventosComponent implements OnInit {
   areas: Area[] = [];
+  ciudades: Ciudad[] = [];
   evento: Evento = {
     _id: '',
     NomEvento: '',
@@ -33,18 +36,28 @@ export class DetalleEventosComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private eventoService: EventoService,
-    private as: AreaService
+    private as: AreaService,
+    private cs: CiudadService
   ) {}
 
   ngOnInit(): void {
     this.getEvento();
     this.cargarAreas();
+    this.getAllCiudades();
   }
 
   cargarAreas() {
     this.as.getAreas().subscribe(areas => {
       this.areas = areas;
       console.log(areas);
+    })
+  }
+
+  getAllCiudades(): void {
+    this.cs.getCiudades().subscribe(ciudad => {
+      this.ciudades = ciudad;
+      console.log(ciudad);
+      console.log("ya jala creo")
     })
   }
 

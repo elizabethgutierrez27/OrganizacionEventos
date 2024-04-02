@@ -60,10 +60,42 @@ async function getOnePar(req, res) {
     }
 }
 
+async function getUser(req, res) {
+    try {
+        const email = req.params.email        
+        const users = await Participante.find({ Correo: email })
+        res.json(users)        
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+}
+
+async function saveEventos(req, res) {
+    const { email, nomEvento, area } = req.body
+    try {
+        const participante = await Participante.findOne({ Correo : email })
+
+        if (!participante) return res.status(404).json({ message : "User not found"})
+
+        if (!participante.Eventos) participante.Eventos = []
+
+        evento = {NomEvento : nomEvento, Area : area}
+        participante.Eventos.push(evento)
+
+        await participante.save()
+
+        res.status(200).json({ message : "Evento agregado" })
+    } catch (err) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     createPar,
     updatePar,
     deletePar,
     getParticipantes,
-    getOnePar
+    getOnePar,
+    getUser,
+    saveEventos
 }

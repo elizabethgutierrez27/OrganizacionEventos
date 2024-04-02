@@ -7,19 +7,21 @@ import { Area } from '../../models/areaModel';
 @Component({
   selector: 'app-participante',
   templateUrl: './participante.component.html',
-  styleUrl: './participante.component.css'
+  styleUrls: ['./participante.component.css']
 })
-export class ParticipanteComponent implements OnInit{
-  eventos : Evento[] = [];
+export class ParticipanteComponent implements OnInit {
+  eventos: Evento[] = [];
   areas: Area[] = [];
   selectedArea: string = "";
+  showModal: boolean = false; // Variable para controlar la visibilidad del modal
+  botonDeshabilitado: boolean = false;
 
-  constructor(private es : EventoService, private as: AreaService) { }
+  constructor(private es: EventoService, private as: AreaService) { }
 
   ngOnInit(): void {
-      this.getEventos();
-      this.getAllAreas();
-      this.getAllEventos();
+    this.getEventos();
+    this.getAllAreas();
+    this.getAllEventos();
   }
 
   getAllAreas(): void {
@@ -62,6 +64,11 @@ export class ParticipanteComponent implements OnInit{
           // Actualiza localmente el número de participantes en el evento
           if (evento.Participantes !== undefined) {
             evento.Participantes++;
+            evento.Cupo--;
+          }
+
+          if(evento.Cupo<1){
+            this.botonDeshabilitado = true;
           }
         },
         error => {
@@ -76,6 +83,8 @@ export class ParticipanteComponent implements OnInit{
           console.log('Inscripción exitosa en el evento:', response);
           // Actualiza localmente el número de participantes en el evento
           evento.Participantes = 1;
+          // Muestra el modal
+          this.showModal = true;
         },
         error => {
           console.error('Error al inscribirse en el evento:', error);
@@ -83,5 +92,9 @@ export class ParticipanteComponent implements OnInit{
       );
     }
   }
-  
+
+  closeModal(): void {
+    // Oculta el modal
+    this.showModal = false;
+  }
 }

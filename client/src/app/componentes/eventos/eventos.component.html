@@ -13,7 +13,7 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/eventos">Inicio</a></li>
+        <li class="selected"><a href="/eventos">Inicio</a></li>
         <li><a href="/administracion">Administración de Eventos</a></li>
         <li><a href="#">Cerrar Sesión</a></li>
       </ul>
@@ -23,14 +23,15 @@
     <header>
       <div class="container">
         <h1>Organización de Eventos</h1>
+        <button class="menu-toggle">&#9776;</button>
       </div>
     </header>
 
     <div class="selector-container">
       <div class="container">
-        <label for="selector">Área de interés:</label>
+        <label for="selector">Área de interés: </label>
         <select id="selector" [(ngModel)]="selectedArea" (ngModelChange)="changeEvento()">
-          <option value="" disabled selected>Selecciona un área</option>
+          <option value="" selected>Todas</option>
           <option value="" *ngFor="let area of areas" [value]="area.NomArea">{{area.NomArea}}</option>
         </select>
       </div>
@@ -42,34 +43,33 @@
         <p>{{evento.Descripcion}}</p>
         <button class="ver-detalles" (click)="mostrarDetalles(evento)">Ver detalles</button>
       </div>
-    </div>
-  -->
+    </div>-->
 
-  <div class="main container">
-    <ul class="cards justify-content-center">
-      <li class="cards_item" *ngFor="let evento of eventos">
-        <div class="card">
-          <div class="card_image">
-            <img src="{{evento.Imagen}}" height="400" width="327"/>
-          </div>
-          
-          <div class="card_content">
-            <h2 class="card_title">{{evento.NomEvento}}</h2>
-            <div class="card_text">
-              <p><b>Descripción:</b></p>
-              <p>{{evento.Descripcion}}
-              </p>
-            </div>
-            <div>
-              <p><b>Cupo:</b></p>
+    <div class="main container">
+      <ul class="cards justify-content-center">
+        <li class="cards_item" *ngFor="let evento of eventos">
+          <div class="card">
+            <div class="card_image">
+              <img src="{{evento.Imagen}}" height="420" width="327"/>
               <span class="card_price">{{evento.Cupo}}</span>
+            </div>
+            <div class="card_content">
+              <h2 class="card_title">{{evento.NomEvento}}</h2>
+              <div class="card_text">
+                <p>{{evento.Descripcion}}
+                </p>
+                <hr />
+                <!--<p>Served with your choice of dressing on the side: <strong>housemade ranch</strong>, <strong>cherry balsamic
+                    vinaigrette</strong>, <strong>creamy chipotle</strong>, <strong>avocado green goddess</strong>, or <strong>honey mustard</strong>. Add your choice
+                  of protein for $2 more.
+                </p>-->
+              </div>
+            </div>
+            <button class="ver-detalles" (click)="mostrarDetalles(evento)">Ver detalles</button>
           </div>
-          </div>
-          <button class="ver-detalles" (click)="mostrarDetalles(evento)">Ver detalles</button>
-        </div>
-      </li>
-    </ul >
-  </div>
+        </li>
+      </ul >
+    </div>
 
     <!-- Modal de detalles -->
     <div id="modal" class="modal" (click)="cerrarModal()">
