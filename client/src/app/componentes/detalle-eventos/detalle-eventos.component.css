@@ -11,6 +11,10 @@ body {
   
   }
   
+  .selected {
+    background-color: #91b5ac;
+  }
+
   header {
     background-color: #a0eec9;
     /* verde */

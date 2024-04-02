@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Participante } from './participante.model';
 import { Observable } from 'rxjs';
-import { Cargo } from './cargo.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CargoService {
+
+export class LoginService {
   private URL = 'http://localhost:3000/api'
-  
+
   constructor(private http : HttpClient) { }
 
-  getCargos() : Observable<Cargo[]> {
-    return this.http.get<Cargo[]>(`${this.URL}/cargo`);
+  findSession(correo : string) : Observable<Participante[]>{
+    return this.http.get<Participante[]>(`${this.URL}/login/${correo}`)
   }
 }

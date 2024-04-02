@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router'; // Importa RouterModule
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventosComponent } from './componentes/eventos/eventos.component';
@@ -14,6 +15,9 @@ import { NavigationComponent } from './componentes/navigation/navigation.compone
 import { EventssComponent } from './componentes/eventss/eventss.component';
 import { IndexComponent } from './componentes/index/index.component';
 import { DetalleEventosComponent } from './componentes/detalle-eventos/detalle-eventos.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { RegisterComponent } from './componentes/register/register.component';
+import { ParticipanteComponent } from './componentes/participante/participante.component';
 
 const routes: Routes=[
 
@@ -28,7 +32,10 @@ const routes: Routes=[
     NavigationComponent,
     EventssComponent,
     IndexComponent,
-    DetalleEventosComponent
+    DetalleEventosComponent,
+    LoginComponent,
+    RegisterComponent,
+    ParticipanteComponent
   ],
   imports: [
     BrowserModule,

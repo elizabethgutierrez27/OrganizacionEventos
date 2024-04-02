@@ -9,5 +9,5 @@ export interface Evento {
     Cupo : number,
     Participantes? : number,
     Asistentes? : number,
-    Imagen? : string
+    Imagen? : string | null
 }

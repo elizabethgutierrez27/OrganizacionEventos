@@ -10,7 +10,7 @@ declare module '../models/eventoModel' {
         Cupo: Number,
         Participantes: Number,
         Asistentes: Number,
-        Imagen: String
+        Imagen: String | null
     }
 }
 

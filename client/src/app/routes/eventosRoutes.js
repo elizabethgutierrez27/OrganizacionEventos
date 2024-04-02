@@ -6,6 +6,6 @@ router.get("/", ec.getEventos);
 router.get("/:id", ec.getOneEve);
 router.put("/:id", ec.updateEve);
 router.delete("/:id", ec.deleteEve);
-router.post("/", ec.createPar);
+router.post("/", ec.createEve);
 
 module.exports = router;

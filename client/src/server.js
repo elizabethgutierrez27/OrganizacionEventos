@@ -13,6 +13,7 @@ app.use(morgan("dev"));
 
 app.use("/api/areas", areaRoutes)
 app.use("/api/ciudad", ciudadRoutes)
+
 /*app.use(require("./app/routes/areaRoutes"));
 app.use(require("./app/routes/cargoRoutes"));
 app.use(require("./app/routes/ciudadRoutes"));

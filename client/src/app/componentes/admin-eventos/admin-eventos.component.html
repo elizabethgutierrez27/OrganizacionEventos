@@ -36,7 +36,7 @@
         
         <!-- Campo para la imagen -->
         <label for="imagen-evento">Imagen:</label>
-        <input type="file" id="imagen-evento" name="imagen-evento" required>
+        <input type="text" id="imagen-evento" name="imagen-evento" required [(ngModel)]="evento.Imagen">
         
         <!-- Campo para la descripción del evento -->
         <label for="descripcion-evento">Descripción del Evento:</label>
@@ -45,7 +45,7 @@
         <!-- Campo para la ciudad -->
         <label for="ciudad-evento">Ciudad:</label>
         <select id="ciudad-evento" name="ciudad-evento" [(ngModel)]="evento.Ciudad">
-          <option value="">Selecciona un área</option>
+          <option value="">Selecciona un ciudad</option>
           <option *ngFor="let ciudad of ciudades" [value]="ciudad.NomCiudad">{{ciudad.NomCiudad}}</option>
         </select>
 

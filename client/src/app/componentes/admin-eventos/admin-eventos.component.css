@@ -53,6 +53,10 @@ body {
     padding: 8px 16px;
     cursor: pointer;
   }
+
+  .selected {
+    background-color: #91b5ac;
+  }
   
   .sidebar {
     position: fixed;

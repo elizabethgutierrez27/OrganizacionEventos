@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1200px;
+
+}
+
+header {
+  background-color: #a0eec9;
+  /* verde */
+  padding: 20px 0;
+  color: white;
+  text-align: center;
+}
+
+.selector-container {
+  background-color: #9dfacc;
+  padding: 20px 0;
+  text-align: right;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #2ead78;
+  color: white;
+}
+
+.sidebar .logo-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #011a02;
+}
+
+.sidebar nav ul li:last-child {
+  border-bottom: none;
+}
+
+.sidebar nav ul li a {
+  color: rgb(250, 242, 242);
+  text-decoration: none;
+}
+
+.main-content {
+  margin-left: 250px;
+}
+/* Estilos del carrusel */
+#carouselExampleCaptions {
+  max-width: 900px; /* Reducir el ancho del carrusel */
+  margin: auto; /* Centrar el carrusel */
+}
+
+.carousel-item img {
+  max-height: 300px; /* Ajustar la altura máxima de las imágenes */
+  width: 100%; /* Ajustar el ancho de las imágenes */
+  object-fit: cover; /* Ajustar el tamaño de la imagen para cubrir el contenedor */
+}

@@ -23,7 +23,6 @@
     <header>
       <div class="container">
         <h1>Organización de Eventos</h1>
-        <button class="menu-toggle">&#9776;</button>
       </div>
     </header>
 
@@ -37,20 +36,47 @@
       </div>
     </div>
 
-    <div class="eventos-container">
+    <!--<div class="eventos-container">
       <div class="evento text-center" *ngFor="let evento of eventos">
         <h2>{{evento.NomEvento}}</h2>
         <p>{{evento.Descripcion}}</p>
         <button class="ver-detalles" (click)="mostrarDetalles(evento)">Ver detalles</button>
       </div>
     </div>
+  -->
+
+  <div class="main container">
+    <ul class="cards justify-content-center">
+      <li class="cards_item" *ngFor="let evento of eventos">
+        <div class="card">
+          <div class="card_image">
+            <img src="{{evento.Imagen}}" height="400" width="327"/>
+          </div>
+          
+          <div class="card_content">
+            <h2 class="card_title">{{evento.NomEvento}}</h2>
+            <div class="card_text">
+              <p><b>Descripción:</b></p>
+              <p>{{evento.Descripcion}}
+              </p>
+            </div>
+            <div>
+              <p><b>Cupo:</b></p>
+              <span class="card_price">{{evento.Cupo}}</span>
+          </div>
+          </div>
+          <button class="ver-detalles" (click)="mostrarDetalles(evento)">Ver detalles</button>
+        </div>
+      </li>
+    </ul >
+  </div>
 
     <!-- Modal de detalles -->
     <div id="modal" class="modal" (click)="cerrarModal()">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <h2 id="evento-nombre">{{selectedEvento?.NomEvento}}</h2>
-        <p id="evento-descripcion">{{selectedEvento?.Descripcion}}</p>
+        <h2 id="evento-nombre">{{selectedEvento.NomEvento}}</h2>
+        <p id="evento-descripcion">{{selectedEvento.Descripcion}}</p>
         <div class="modal-buttons">
           <button *ngIf="selectedEvento && selectedEvento._id" (click)="editarEvento(selectedEvento._id)">Editar Evento</button>
           <button>Ver Participantes</button>

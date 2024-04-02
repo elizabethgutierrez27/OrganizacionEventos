@@ -24,7 +24,7 @@ export class AdminEventosComponent implements OnInit {
     FechaInicio: '',
     FechaFinal: '',
     Cupo: 0,
-    Imagen: '',
+    Imagen: null,
     Participantes: 0,
     Asistentes: 0
   }

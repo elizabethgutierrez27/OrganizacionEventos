@@ -1,15 +1,15 @@
 export interface Participante {
-    NomParticipante : string,
-    ApePaterno : string,
-    ApeMaterno : string,
-    Edad : number,
-    Genero : string,
-    Telefono : string,
-    Correo : string,
-    Ciudad : string,
-    Contraseña : string,
+    Nombres : String,
+    ApePaterno : String,
+    ApeMaterno : String,
+    Edad : Number,
+    Genero : String,
+    Telefono : String,
+    Correo : String,
+    Ciudad : String,
+    Password : String,
     Eventos : {
-        NomEvento : string,
-        Area : string
+        NomEvento : String,
+        Area : String
     }
 }

@@ -7,6 +7,9 @@ import { IndexComponent } from './componentes/index/index.component';
 import { MainComponent } from './componentes/main/main.component';
 import { NavigationComponent } from './componentes/navigation/navigation.component';
 import { DetalleEventosComponent } from './componentes/detalle-eventos/detalle-eventos.component';
+import { RegisterComponent } from './componentes/register/register.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { ParticipanteComponent } from './componentes/participante/participante.component';
 
 const routes: Routes = [
   {
@@ -19,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo : 'administracion',
+    redirectTo : 'eventos',
     pathMatch: 'full'
   },
   {
@@ -41,6 +44,18 @@ const routes: Routes = [
   {
     path:'editar-evento/:id',
     component: DetalleEventosComponent
+  },
+  {
+    path: 'registro',
+    component: RegisterComponent
+  },
+  {
+    path:'inicio',
+    component: LoginComponent
+  },
+  {
+    path:'participante',
+    component:ParticipanteComponent
   }
 ];
 

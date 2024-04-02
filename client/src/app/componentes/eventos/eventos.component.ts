@@ -15,7 +15,19 @@ export class EventosComponent implements OnInit {
   areas: Area[] = [];
   eventos: Evento[] = [];
   selectedArea: string = "";
-  selectedEvento: Evento | null = null;
+  selectedEvento: Evento= {
+    _id: '',
+    NomEvento: '',
+    Ciudad: '',
+    Area: '',
+    Descripcion: '',
+    FechaInicio: '',
+    FechaFinal: '',
+    Cupo: 0,
+    Imagen: '',
+    Participantes: 0,
+    Asistentes: 0
+  };
   modalEdicionAbierto: boolean = false;
 
   eventoEditado: Evento = {

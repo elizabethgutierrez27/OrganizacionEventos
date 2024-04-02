@@ -9,7 +9,7 @@ const participanteSchema = mongoose.Schema({
     Telefono: String,
     Correo: String,
     Ciudad: String,
-    Contraseña: String,
+    Password: String,
     Eventos: {
         NombreEvento: String,
         Area: String

@@ -41,4 +41,6 @@ export class EventoService {
   updateEvento(evento: Evento): Observable<any> {
     return this.http.put(`${this.URL}/evento/${evento._id}`, evento); 
   }
+
+  
 }
